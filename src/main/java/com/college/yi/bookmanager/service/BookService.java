@@ -1,64 +1,68 @@
 package com.college.yi.bookmanager.service;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
+import com.college.yi.bookmanager.entity.BookEntity;
 import com.college.yi.bookmanager.model.Book;
+import com.college.yi.bookmanager.repository.BookRepository;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
+import lombok.RequiredArgsConstructor;
+
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class BookService {
 
-    public List<Book> getAllBooks() {
-        List<Book> books = new ArrayList<>();
+    private final BookRepository bookRepository;
 
-        Book book1 = new Book();
-        book1.setId(1L);
-        book1.setTitle("Java入門");
-        book1.setAuthor("山田 太郎");
-        book1.setPublisher("技術評論社");
-        book1.setPublishedDate(LocalDate.of(2020, 1, 15));
-        book1.setStock(5);
-        books.add(book1);
+public List<Book> getAllBooks() {
+        List<BookEntity> entities = bookRepository.findAll();
+        if (entities.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "書籍が見つかりません");
+        }
+        return entities.stream().map(this::convertToModel).collect(Collectors.toList());
+    }
 
-        Book book2 = new Book();
-        book2.setId(2L);
-        book2.setTitle("Spring Boot実践");
-        book2.setAuthor("佐藤 花子");
-        book2.setPublisher("翔泳社");
-        book2.setPublishedDate(LocalDate.of(2021, 5, 10));
-        book2.setStock(3);
-        books.add(book2);
+    public Book createBook(Book model) {
+        BookEntity entity = convertToEntity(model);
+        bookRepository.insert(entity);
+        model.setId(entity.getId());
+        return model;
+    }
 
-        Book book3 = new Book();
-        book3.setId(3L);
-        book3.setTitle("MyBatis完全ガイド");
-        book3.setAuthor("中村 一郎");
-        book3.setPublisher("オライリー");
-        book3.setPublishedDate(LocalDate.of(2022, 3, 20));
-        book3.setStock(2);
-        books.add(book3);
+    public Book updateBook(Long id, Book model) {
+        BookEntity entity = convertToEntity(model);
+        entity.setId(id);
+        bookRepository.update(entity);
+        return model;
+    }
 
-        Book book4 = new Book();
-        book4.setId(4L);
-        book4.setTitle("SQLの絵本");
-        book4.setAuthor("田中 美咲");
-        book4.setPublisher("インプレス");
-        book4.setPublishedDate(LocalDate.of(2019, 7, 25));
-        book4.setStock(8);
-        books.add(book4);
+    public void deleteBook(Long id) {
+        bookRepository.delete(id);
+    }
 
-        Book book5 = new Book();
-        book5.setId(5L);
-        book5.setTitle("クラウド時代のアーキテクチャ");
-        book5.setAuthor("鈴木 健");
-        book5.setPublisher("技術評論社");
-        book5.setPublishedDate(LocalDate.of(2023, 9, 30));
-        book5.setStock(4);
-        books.add(book5);
+    private Book convertToModel(BookEntity entity) {
+        Book model = new Book();
+        model.setId(entity.getId());
+        model.setTitle(entity.getTitle());
+        model.setAuthor(entity.getAuthor());
+        model.setPublisher(entity.getPublisher());
+        model.setPublishedDate(entity.getPublishedDate());
+        model.setStock(entity.getStock());
+        return model;
+    }
 
-        return books;
+    private BookEntity convertToEntity(Book model) {
+        BookEntity entity = new BookEntity();
+        entity.setTitle(model.getTitle());
+        entity.setAuthor(model.getAuthor());
+        entity.setPublisher(model.getPublisher());
+        entity.setPublishedDate(model.getPublishedDate());
+        entity.setStock(model.getStock());
+        return entity;
     }
 }
