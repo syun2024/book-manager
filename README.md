@@ -1,17 +1,2 @@
-# 書籍管理アプリ（Thymeleaf + Spring Boot）
-* 1週目：画面表示
-    * Thymeleaf で「書籍一覧」ページを作成（静的 HTML）
-    * /books にアクセスすると、書籍データが表示される
-* 2週目：データベース連携
-    * 書籍データを DB から取得して一覧表示
-    * 書籍の登録・編集・削除フォームを Thymeleaf で作成
-* 3週目：認証/認可
-    * Spring Security を導入し、ログインページを作成
-    * ログインしたユーザーのみが書籍の登録・編集・削除を実行可能
-* 4週目：単体テスト
-    * サービス・リポジトリ層のテストを作成
-    * Thymeleaf のテンプレートが正しくレンダリングされるかテスト
-* 実践編（詳細設計を元に機能追加）
-    * 検索機能：書籍タイトルや著者で検索
-    * 貸し出し管理：借りる/返す機能を追加
-    * 管理者機能：管理者のみ全ての書籍を管理できる
+# [2A] SpringBoot課題
+https://docs.google.com/document/d/1E-Qku7WpZ9S93D8mOy5O0EuY2CLUcQVRxUanhOvlzVU/edit?tab=t.819swt90uxg0
