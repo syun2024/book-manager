@@ -1,10 +1,7 @@
 # [2A] SpringBoot課題
 
-### 詳細
-https://docs.google.com/document/d/1E-Qku7WpZ9S93D8mOy5O0EuY2CLUcQVRxUanhOvlzVU/edit?tab=t.0
-
 ### 目的  
-この課題は、Spring Boot と Thymeleaf を使用して、書籍の管理ができるシンプルなアプリケーションを作成することを目的としています。実際の業務でも活用できるように、データベースとの連携、認証・認可、テストなど、基本的な機能を段階的に学びながら実装します。
+この課題は、Spring Boot を使用して、書籍の管理ができるシンプルなアプリケーションを作成することを目的としています。実際の業務でも活用できるように、データベースとの連携、認証・認可、テストなど、基本的な機能を段階的に学びながら実装します。
 
 ### 目標
 
@@ -14,6 +11,28 @@ https://docs.google.com/document/d/1E-Qku7WpZ9S93D8mOy5O0EuY2CLUcQVRxUanhOvlzVU/
 - GitHub・SourceTree・pgAdmin が使える  
 - 設計書が読める  
 - コードが読める（何の処理をしているのか説明できる）
+
+### ルール
+
+#### 15分考えてもわからない場合は質問する
+
+##### フォーマット
+
+> **質問タイトル**
+> 　例：「for文の使い方が理解できません」
+> **やりたいこと・目指していること**
+>  例：「配列の中の数字をすべて出力したいです」
+> **自分なりの理解や予想**
+> 例：「for文で1つずつ取り出すのかなと思っています」
+> **該当コード（できれば抜粋）**
+> java int[] numbers = {1, 2, 3, 4}; for (int i = 0; i < numbers.length; i++) { System.out.println(numbers); // ←ここでエラー }
+> ※プッシュした git のURLも貼ってください。
+> **エラーや結果、うまくいかないポイント**
+> 例：「numbersと書くとエラーになり、うまく出力されません」
+> **試したこと**
+> 例：プロジェクトの更新/eclipse 再起動
+> **どこまで理解できていて、どこから分からないか**
+>  例：「for文の構造は何となく分かりますが、配列の取り出し方が分かりません」
 
 ---
 
@@ -50,3 +69,8 @@ https://docs.google.com/document/d/1E-Qku7WpZ9S93D8mOy5O0EuY2CLUcQVRxUanhOvlzVU/
 
 - **検索機能**：書籍タイトルや著者で絞り込み検索  
 - **貸し出し管理**：書籍の貸し出しと返却の機能を追加
+
+---
+
+### 詳細
+https://docs.google.com/document/d/1E-Qku7WpZ9S93D8mOy5O0EuY2CLUcQVRxUanhOvlzVU/edit?tab=t.0
