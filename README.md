@@ -91,5 +91,5 @@
 
 ---
 
-### 詳細
+### 課題の詳細はこちらから
 https://docs.google.com/document/d/1E-Qku7WpZ9S93D8mOy5O0EuY2CLUcQVRxUanhOvlzVU/edit?tab=t.0
