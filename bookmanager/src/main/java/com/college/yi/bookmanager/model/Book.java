@@ -8,20 +8,20 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Book {
-    
+
     private int id;
-    
+
     private String title;
-    
+
     private String author;
-    
+
     private String publisher;
-    
+
     private LocalDate publishedDate;
-    
+
     private int stock;
-    
-    public Book(int id,String title,String author,String publisher,LocalDate publishedDate,int stock) {
+
+    public Book(int id, String title, String author, String publisher, LocalDate publishedDate, int stock) {
         this.id = id;
         this.title = title;
         this.author = author;

@@ -10,13 +10,13 @@ import com.college.yi.bookmanager.service.BookService;
 
 @RestController
 public class BookApiController {
-    
+
     public final BookService bookService;
-    
+
     public BookApiController(BookService bookService) {
         this.bookService = bookService;
     }
-    
+
     @GetMapping("/api/books")
     public List<Book> getBookApi() {
         return bookService.getBooks();
