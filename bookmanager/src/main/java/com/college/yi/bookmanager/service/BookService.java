@@ -43,7 +43,8 @@ public class BookService {
         return toModel(bookEnt);
     }
 
-    public Book update(Book book) {
+    public Book update(Book book, int id) {
+        book.setId(id);
         BookEntity bookEnt = toEntity(book);
         bookRepository.update(bookEnt);
         return toModel(bookEnt);
